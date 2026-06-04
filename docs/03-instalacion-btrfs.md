@@ -15,6 +15,7 @@ Resultado obtenido:
 ```text
 btrfs-progs v6.6.3
 ```
+![Verificación de BtrFS](../capturas/btrfs-version.png)
 
 La salida confirma que BtrFS se encuentra instalado y disponible para su utilización en el sistema.
 
