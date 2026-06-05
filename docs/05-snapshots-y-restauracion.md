@@ -133,7 +133,7 @@ Comando utilizado:
 
 ![Restauración desde el snapshot](../capturas/05-restauracion.png)
 
-Esta operación no modifica el snapshot, ya que los snapshots en BtrFS son de solo lectura por defecto, garantizando la integridad del estado histórico del sistema de archivos.
+Este procedimiento no modifica el snapshot, ya que los snapshots en BtrFS son de solo lectura por defecto, garantizando la integridad del estado anterior del sistema de archivos.
 
 Se verificó que el archivo fue restaurado correctamente con el comando:
 
