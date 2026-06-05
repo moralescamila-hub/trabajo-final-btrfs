@@ -133,6 +133,8 @@ Comando utilizado:
 
 ![Restauración desde el snapshot](../capturas/05-restauracion.png)
 
+Esta operación no modifica el snapshot, ya que los snapshots en BtrFS son de solo lectura por defecto, garantizando la integridad del estado histórico del sistema de archivos.
+
 Se verificó que el archivo fue restaurado correctamente con el comando:
 
 ```bash
@@ -141,7 +143,9 @@ Se verificó que el archivo fue restaurado correctamente con el comando:
 
 ![Verificación de la restauración](../capturas/05-verificacion-de-la-restauracion.png)
 
-Se puede observar que el archivo recuperado contiene únicamente la información existente al momento de crear el snapshot, demostrando que las modificaciones posteriores no afectaron la copia almacenada.
+Se puede observar que el archivo recuperado corresponde al estado que tenía en el momento de la creación del snapshot, sin incluir modificaciones posteriores.
+
+Este método permite recuperar archivos individuales sin necesidad de restaurar todo el sistema de archivos, lo que representa una ventaja importante en entornos productivos.
 
 ## Uso de espacio (Copy-on-Write)
 
@@ -154,7 +158,7 @@ Se verifica el uso de espacio del filesystem con el comando:
 Y también se analiza el uso del directorio de snapshots con el comando:
 
 ```bash
- sudo btrfs filesystem du -s /mnt/btrfs/snapshots
+ sudo btrfs filesystem du -s /mnt/btrfs/snapshots/proyectos_snap1
 ```
 ![Uso de espacio](../capturas/05-uso-de-espacio.png)
 
@@ -168,20 +172,21 @@ GlobalReserve, single: total=5.50MiB, used=0.00B
 ```
 
 ```text
-     Total   Exclusive  Set shared  Filename
- 150.00MiB       0.00B   150.00MiB  /mnt/btrfs/snapshots
+    Total   Exclusive  Set shared  Filename
+ 150.00MiB       0.00B   150.00MiB  /mnt/btrfs/snapshots/proyectos_snap1
 ```
 
-Los snapshots ocupan espacio mínimo adicional debido al mecanismo Copy-on-Write.
-No se duplican los datos completos del subvolumen.
+El valor "shared" indica los bloques de datos compartidos entre el snapshot y el subvolumen original, lo que demuestra la eficiencia del mecanismo Copy-on-Write en términos de almacenamiento.
 
-## Funcionamiendo de Copy-on-Write
+## Funcionamiento de Copy-on-Write
 
 BtrFS implementa la tecnología Copy-on-Write (CoW), mediante la cual los bloques originales de datos no son sobrescritos cuando se realizan modificaciones.
 
-Gracias a este mecanismo, los snapshots pueden crearse de forma prácticamente instantánea y con un consumo mínimo de espacio inicial, ya que solamente se almacena nuevos bloques cuando los datos cambian.
+Gracias a este mecanismo, los snapshots pueden crearse de forma prácticamente instantánea y con un consumo mínimo de espacio inicial, ya que unicamente se almacenan nuevos bloques cuando los datos cambian.
 
 Esta característica permite generar puntos de recuperación frecuentes con un impacto reducido sobre el almacenamiento disponible.
+
+Los snapshots en BtrFS no duplican datos al momento de su creación, sino que comparten bloques con subvolumenes original hasta que se realizan modificaciones.
 
 ## Justificación de la prueba
 
@@ -198,8 +203,8 @@ Además, este escenario permite observar el funcionamiento de Copy-on-Write (CoW
 
 ## Conclusiones
 
-La prueba realizada demostró que los snapshots de BtrFS permiten recuperar información eliminada o modificada de manera rápida y sencilla.
+La prueba realizada demostró que los snapshots de BtrFS permiten la recuperación eficiente de información eliminada o modificada, sin necesidad de restaurar completamente el sistema de archivos.
 
 La utilización de la tecnología Copy-on-Write posibilita la creación de snapshots eficientes en términos de tiempo y espacio, convirtiéndolos en una herramienta fundamental para tareas de respaldo, recuperación ante errores y administración de sistemas.
 
-También es posible restaurar archivos individuales desde un snapshot sin necesidad de restaurar todo el subvolumen.
+También es posible restaurar archivos individuales desde un snapshot sin necesidad de restaurar todo el subvolumen, lo que incrementa la flexibilidad del sistema.
