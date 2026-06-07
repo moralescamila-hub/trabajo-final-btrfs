@@ -1,0 +1,89 @@
+========================================
+REPORTE BTRFS
+Fecha: sáb 06 jun 2026 19:18:40 -03
+========================================
+
+=== USO DEL FILESYSTEM ===
+Data, single: total=416.00MiB, used=300.00MiB
+System, DUP: total=32.00MiB, used=16.00KiB
+Metadata, DUP: total=256.00MiB, used=576.00KiB
+GlobalReserve, single: total=5.50MiB, used=0.00B
+
+=== DISPOSITIVOS DEL POOL ===
+Label: none  uuid: 9333bea4-2b5d-49f7-b96c-c72059e6be23
+	Total devices 4 FS bytes used 300.58MiB
+	devid    1 size 1.00GiB used 0.00B path /dev/sdb
+	devid    2 size 1.00GiB used 64.00MiB path /dev/sdc
+	devid    3 size 1.00GiB used 416.00MiB path /dev/sdd
+	devid    4 size 1.00GiB used 512.00MiB path /dev/sde
+
+
+=== CUOTAS Y SUBVOLÚMENES ===
+Qgroupid    Referenced    Exclusive   Path 
+--------    ----------    ---------   ---- 
+0/5           16.00KiB     16.00KiB   <toplevel>
+0/256        150.02MiB     16.00KiB   proyectos
+0/257         16.00KiB     16.00KiB   documentos
+0/258         16.00KiB     16.00KiB   backups
+0/259         16.00KiB     16.00KiB   snapshots
+0/260        150.02MiB     16.00KiB   snapshots/proyectos_snap1
+0/261        150.02MiB     16.00KiB   snapshots/proyectos-20260606-182647
+0/262        150.02MiB    150.02MiB   backups/proyectos-20260606-182647
+
+=== ESTADÍSTICAS DE DISPOSITIVOS ===
+[/dev/sdb].write_io_errs    0
+[/dev/sdb].read_io_errs     0
+[/dev/sdb].flush_io_errs    0
+[/dev/sdb].corruption_errs  0
+[/dev/sdb].generation_errs  0
+[/dev/sdc].write_io_errs    0
+[/dev/sdc].read_io_errs     0
+[/dev/sdc].flush_io_errs    0
+[/dev/sdc].corruption_errs  0
+[/dev/sdc].generation_errs  0
+[/dev/sdd].write_io_errs    0
+[/dev/sdd].read_io_errs     0
+[/dev/sdd].flush_io_errs    0
+[/dev/sdd].corruption_errs  0
+[/dev/sdd].generation_errs  0
+[/dev/sde].write_io_errs    0
+[/dev/sde].read_io_errs     0
+[/dev/sde].flush_io_errs    0
+[/dev/sde].corruption_errs  0
+[/dev/sde].generation_errs  0
+
+=== /proc/diskstats ===
+   7       0 loop0 14 0 34 1 0 0 0 0 0 2 1 0 0 0 0 0 0
+   7       1 loop1 45 0 700 512 0 0 0 0 0 513 512 0 0 0 0 0 0
+   7       2 loop2 50 0 722 507 0 0 0 0 0 507 507 0 0 0 0 0 0
+   7       3 loop3 55 0 2166 1201 0 0 0 0 0 727 1201 0 0 0 0 0 0
+   7       4 loop4 57 0 2150 1068 0 0 0 0 0 737 1068 0 0 0 0 0 0
+   7       5 loop5 59 0 2192 868 0 0 0 0 0 745 868 0 0 0 0 0 0
+   7       6 loop6 487 0 13536 3243 0 0 0 0 0 2372 3243 0 0 0 0 0 0
+   7       7 loop7 56 0 2140 1364 0 0 0 0 0 730 1364 0 0 0 0 0 0
+  11       0 sr0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   8       0 sda 35027 14441 6434952 171693 37828 48509 1682208 177943 0 58932 391080 0 0 0 0 7362 41443
+   8       1 sda1 52 0 416 54 0 0 0 0 0 51 54 0 0 0 0 0 0
+   8       2 sda2 34861 14441 6429824 171383 37828 48509 1682208 177943 0 65789 349327 0 0 0 0 0 0
+   8      16 sdb 298 0 12856 346 15 0 80 17 0 263 379 0 0 0 0 10 15
+   8      32 sdc 297 0 12872 329 15 0 80 20 0 327 370 0 0 0 0 10 19
+   8      48 sdd 471 3 322128 842 145 0 307280 912 0 779 1774 0 0 0 0 10 19
+   8      64 sde 224 0 9432 147 37 74 3152 26 0 155 194 0 0 0 0 10 19
+   7       8 loop8 2311 0 245992 1842 0 0 0 0 0 1280 1842 0 0 0 0 0 0
+   7       9 loop9 43 0 694 494 0 0 0 0 0 492 494 0 0 0 0 0 0
+   7      10 loop10 103 0 5774 492 0 0 0 0 0 501 492 0 0 0 0 0 0
+   7      11 loop11 59 0 2188 1161 0 0 0 0 0 751 1161 0 0 0 0 0 0
+   7      12 loop12 2336 0 98788 4228 0 0 0 0 0 3515 4228 0 0 0 0 0 0
+   7      13 loop13 3576 0 31328 749 0 0 0 0 0 681 749 0 0 0 0 0 0
+   7      14 loop14 43 0 692 273 0 0 0 0 0 272 273 0 0 0 0 0 0
+   7      15 loop15 44 0 696 269 0 0 0 0 0 266 269 0 0 0 0 0 0
+   7      16 loop16 43 0 696 282 0 0 0 0 0 281 282 0 0 0 0 0 0
+   7      17 loop17 1259 0 120338 900 0 0 0 0 0 722 900 0 0 0 0 0 0
+   7      18 loop18 49 0 812 359 0 0 0 0 0 361 359 0 0 0 0 0 0
+   7      19 loop19 45 0 700 375 0 0 0 0 0 370 375 0 0 0 0 0 0
+   7      20 loop20 56 0 742 367 0 0 0 0 0 358 367 0 0 0 0 0 0
+   7      21 loop21 21 0 116 214 0 0 0 0 0 215 214 0 0 0 0 0 0
+   7      22 loop22 48 0 1296 195 0 0 0 0 0 200 195 0 0 0 0 0 0
+   7      23 loop23 59 0 2276 322 0 0 0 0 0 244 322 0 0 0 0 0 0
+   7      24 loop24 54 0 2148 337 0 0 0 0 0 235 337 0 0 0 0 0 0
+   7      25 loop25 11 0 28 0 0 0 0 0 0 0 0 0 0 0 0 0 0

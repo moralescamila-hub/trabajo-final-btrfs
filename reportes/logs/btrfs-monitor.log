@@ -1,0 +1,6 @@
+[2026-06-06 19:18:40] Iniciando monitoreo
+[2026-06-06 19:18:40] No se detectaron errores en dispositivos
+[2026-06-06 19:18:40] Estado de Metadata:
+[2026-06-06 19:18:40] Metadata, DUP: total=256.00MiB, used=576.00KiB
+[2026-06-06 19:18:40] Reporte generado en ./reportes/estado-btrfs.txt
+[2026-06-06 19:18:40] Monitoreo finalizado
