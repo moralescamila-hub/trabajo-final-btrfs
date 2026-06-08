@@ -1,36 +1,124 @@
 
 # Trabajo Final - BtrFS
 
-## Alumna:
-Jimena Camila Morales
+## Alumna
 
-## Materia:
-Administración de sistemas avanzadas.
+**Morales Jimena Camila**
 
-## Descripción del proyecto
-Este proyecto explora las funcionalidades avanzadas del sistema de archivos **BtrFS** mediante un laboratorio práctico en Ubuntu Desktop 24.04.  
+## Materia
 
-Se enfoca en:
+**Administración de Sistemas Avanzadas**
 
-- Configuración de BtrFS sobre múltiples dispositivos.
-- Creación y gestión de subvolúmenes.
-- Implementación de cuotas de almacenamiento.
-- Creación y restauración de snapshots mediante Copy-on-Write.
-- Automatización del ciclo de vida de snapshots con scripts.
-- Monitoreo del uso real del sistema de archivos.
-- Comparación entre BtrFS y LVM.
+## Descripción
 
-## Entorno de pruebas
-- Ubuntu Desktop 24.04 en VirtualBox.
-- 4 discos virtuales de 1 GB cada uno (`sdb` a `sde`).
-- Git y GitHub para control de versiones y documentación.
+Este proyecto tiene como objetivo explorar las principales funcionalidades del sistema de archivos **BtrFS** mediante la implementación de un laboratorio práctico sobre Ubuntu Desktop 24.04.
 
-## Estructura del repositorio
-- `docs/` → Documentación paso a paso del proyecto.
-- `scripts/` → Scripts de automatización y monitoreo.
-- `capturas/` → Evidencia visual del proceso.
-- `reportes/` → Resultados generados por los scripts.
-- `recursos/` → Bibliografía y referencias utilizadas.
+Durante el desarrollo se analizaron características avanzadas como:
 
-## Objetivo final
-Demostrar el funcionamiento de BtrFS como solución moderna de almacenamiento y comparar su eficiencia y flexibilidad frente a LVM, con herramientas de automatización y monitoreo incluidas.
+* Filesystems BtrFS sobre múltiples dispositivos.
+* Administración de subvolúmenes.
+* Configuración de cuotas (qgroups).
+* Creación y restauración de snapshots mediante Copy-on-Write (CoW).
+* Automatización del ciclo de vida de snapshots.
+* Replicación mediante `btrfs send` y `btrfs receive`.
+* Monitoreo y observabilidad del filesystem.
+* Comparación entre snapshots BtrFS y snapshots LVM.
+
+---
+
+## Objetivos
+
+* Instalar y configurar BtrFS.
+* Implementar un entorno multidevice.
+* Crear y administrar subvolúmenes.
+* Configurar cuotas de almacenamiento.
+* Demostrar la recuperación de datos mediante snapshots.
+* Automatizar tareas administrativas mediante scripting.
+* Implementar mecanismos de monitoreo y observabilidad.
+* Comparar el comportamiento de BtrFS con LVM.
+
+---
+
+## Entorno de Pruebas
+
+| Componente                      | Configuración              |
+| ------------------------------- | -------------------------- |
+| Sistema Operativo               | Ubuntu Desktop 24.04 LTS   |
+| Virtualización                  | VirtualBox                 |
+| Discos para BtrFS               | 4 discos virtuales de 1 GB |
+| Sistema de Control de Versiones | Git                        |
+| Plataforma de publicación       | GitHub                     |
+
+---
+
+## Estructura del Repositorio
+
+```text
+trabajo-final-btrfs/
+│
+├── docs/         # Documentación técnica
+├── scripts/      # Automatización y monitoreo
+├── capturas/     # Evidencias visuales
+├── reportes/     # Logs y reportes generados
+```
+
+---
+
+## Documentación
+
+| Documento                      | Descripción                    |
+| ------------------------------ | ------------------------------ |
+| 01-introduccion.md             | Contexto y objetivos           |
+| 02-entorno-de-pruebas.md       | Infraestructura utilizada      |
+| 03-instalacion-btrfs.md        | Instalación y configuración    |
+| 04-subvolumenes-y-cuotas.md    | Administración de subvolúmenes |
+| 05-snapshots-y-restauracion.md | Snapshots y recuperación       |
+| 06-automatizacion.md           | Automatización con scripting   |
+| 07-monitoreo.md                | Observabilidad y monitoreo     |
+| 08-comparacion-con-lvm.md      | Comparación con LVM            |
+| 09-conclusiones.md             | Conclusión final
+---
+
+## Scripts incluidos
+
+### snapshot-manager.sh
+
+Automatiza el ciclo de vida de snapshots:
+
+* Creación de snapshots readonly.
+* Política de retención configurable.
+* Eliminación automática de snapshots antiguos.
+* Replicación mediante `btrfs send` y `btrfs receive`.
+* Generación de logs.
+
+### btrfs-monitor.sh
+
+Implementa observabilidad del filesystem:
+
+* Uso interno de Data y Metadata.
+* Estado de dispositivos.
+* Información de cuotas y subvolúmenes.
+* Captura de estadísticas desde `/proc/diskstats`.
+* Detección de errores.
+* Generación de reportes y logs.
+
+---
+
+## Resultados obtenidos
+
+Durante las pruebas se logró:
+
+* Implementar un filesystem BtrFS sobre múltiples dispositivos.
+* Configurar cuotas y subvolúmenes independientes.
+* Crear snapshots instantáneos mediante CoW.
+* Recuperar información eliminada utilizando snapshots.
+* Automatizar tareas administrativas.
+* Implementar monitoreo y generación de reportes.
+* Analizar diferencias entre BtrFS y LVM.
+
+---
+
+## Licencia
+
+Este repositorio se distribuye bajo licencia MIT.
+
