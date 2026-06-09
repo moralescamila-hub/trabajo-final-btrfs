@@ -32,7 +32,7 @@ Una vez finalizada la instalación, se puede volver a ejecutar el comando `btrfs
 
 ## Creación del filesystem BtrFS
 
-Para iniciar, se formateó el primer disco virtual en un primer disco virtual (`/dev/sdb`) con el objetivo de permitir un entorno controlado para la creación de snapshots y pruebas de restauración.
+Para iniciar, se formateó el primer disco virtual (`/dev/sdb`) con el objetivo de permitir un entorno controlado para la creación de snapshots y pruebas de restauración.
 
 ```bash
 sudo mkfs.btrfs -f /dev/sdb
