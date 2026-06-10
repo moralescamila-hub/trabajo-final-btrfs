@@ -103,7 +103,7 @@ Para simular una situación real de pérdida de información se elimino el archi
 sudo rm /mnt/btrfs/proyectos/archivo.txt
 ```
 
-![Eliminación del archivo](../capturas/05-eliminacion-del-archivo.png)
+![Eliminación del archivo](../capturas/05-eliminación-del-archivo.png)
 
 Se verificó que se haya eliminado con el comando:
 
