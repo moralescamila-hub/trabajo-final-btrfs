@@ -39,19 +39,21 @@ En este caso se reserva un área de 200 MB destinada al snapshot.
 
 A medida que el volumen original se modifica, LVM almacena las diferencias dentro de ese espacio reservado.
 
-## Comparación funcional
+## Cuadro Comparativo
 
-| Característica                          | BtrFS               | LVM            |
-| --------------------------------------- | ------------------- | -------------- |
-| Nivel de operación                      | Sistema de archivos | Bloques        |
-| Snapshots nativos                       | Sí                  | Sí             |
-| Copy-on-Write                           | Sí                  | Sí             |
-| Subvolúmenes                            | Sí                  | No             |
-| Cuotas integradas                       | Sí                  | No             |
-| Send / Receive                          | Sí                  | No             |
-| Administración de archivos individuales | Sí                  | No             |
-| Replicación incremental                 | Sí                  | No             |
-| Espacio inicial requerido               | Mínimo              | Reserva previa |
+A continuación se presenta un cuadro comparativo que resume las principales diferencias entre BtrFS y LVM desde el punto de vista de la gestión de snapshots y almacenamiento.
+
+| Característica             | BtrFS                                                                                                                       | LVM                                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Nivel de funcionamiento    | Funciona como sistema de archivos completo, gestionando datos, subvolúmenes y snapshots de forma integrada.                 | Funciona como una capa de administración de volúmenes por debajo del sistema de archivos. |
+| Creación de snapshots      | Los snapshots son nativos y se crean de forma inmediata sin copiar datos completos.                                         | Los snapshots se crean a nivel de bloques y requieren configuración previa.               |
+| Uso de espacio             | Utiliza Copy-on-Write, por lo que los snapshots comparten bloques con el original y solo ocupan espacio cuando hay cambios. | Requiere reservar espacio desde el inicio para almacenar modificaciones del snapshot.     |
+| Gestión del almacenamiento | Es dinámica y automática; el sistema distribuye el espacio entre datos y metadatos.                                         | Es más manual; el administrador debe planificar el tamaño de los volúmenes y snapshots.   |
+| Subvolúmenes               | Permite organizar datos en subvolúmenes independientes dentro del mismo filesystem.                                         | No tiene el concepto de subvolúmenes.                                                     |
+| Replicación                | Soporta envío y recepción de snapshots mediante `btrfs send` y `btrfs receive`.                                             | No tiene mecanismo nativo de replicación de snapshots.                                    |
+| Recuperación de datos      | Permite restaurar archivos o estados completos directamente desde snapshots.                                                | Generalmente requiere montar el snapshot como un volumen separado.                        |
+| Complejidad de uso         | Más simple para tareas de snapshots y backups frecuentes.                                                                   | Más flexible a nivel bajo, pero con mayor complejidad de configuración.                   |
+
 
 ## Comparación del uso de espacio
 
