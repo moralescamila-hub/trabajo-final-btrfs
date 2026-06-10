@@ -85,7 +85,7 @@ Se verificó que la modificación se realizo correctamente con el comando:
 cat /mnt/btrfs/proyectos/archivo.txt
 ```
 
-![Verificación de la modificación](../capturas/05-verificación-despues-del-cambio.png)
+![Verificación de la modificación](../capturas/05-verificacion-despues-del-cambio.png)
 
 Resultado Obtenido:
 
