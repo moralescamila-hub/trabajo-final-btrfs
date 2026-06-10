@@ -81,6 +81,14 @@ sudo btrfs filesystem show /mnt/btrfs
 ```
 ![Verificación del estado del pool](../capturas/verificacion-del-estado.png)
 
+## Justificación
+
+Se decidió crear inicialmente el filesystem sobre un único disco para simplificar la configuración y las pruebas de snapshots, subvolúmenes y restauración de datos. Una vez verificado su funcionamiento, se agregaron los demás discos al pool de BtrFS para demostrar su capacidad de expansión sobre múltiples dispositivos.
+
+Luego, se realizó un balanceo para distribuir los datos entre todos los discos incorporados y aprovechar mejor el espacio disponible.
+
+No se utilizó RAID, ya que el objetivo principal del trabajo era analizar las funcionalidades de BtrFS relacionadas con snapshots, cuotas y recuperación de datos, manteniendo una configuración sencilla que facilitara las pruebas y la observación de resultados.
+
 ## Preparación para la siguiente etapa
 
 Con el filesystem ya creado y expandido a múltiples dispositivos, el entorno queda listo para la creación de subvolúmenes, snapshots y la demostración de restauración de datos.
