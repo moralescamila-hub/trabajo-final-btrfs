@@ -76,7 +76,8 @@ trabajo-final-btrfs/
 | 06-automatizacion.md           | Automatización con scripting   |
 | 07-monitoreo.md                | Observabilidad y monitoreo     |
 | 08-comparacion-con-lvm.md      | Comparación con LVM            |
-| 09-conclusiones.md             | Conclusión final
+| 09-conclusiones.md             | Conclusión final               |
+| 10-ejemplo.md                  | Ejemplo de la domostración     |
 ---
 
 ## Scripts incluidos
