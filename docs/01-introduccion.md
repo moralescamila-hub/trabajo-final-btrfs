@@ -60,4 +60,5 @@ El trabajo se encuentra organizado en las siguientes secciones:
 7. Monitoreo y observabilidad.
 8. Comparación con snapshots de LVM.
 9. Conclusiones.
+10. Ejemplo para la exposición.
 
