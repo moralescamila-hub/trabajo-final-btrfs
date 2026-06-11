@@ -29,7 +29,7 @@ Durante cada ejecución se realiza los siguientes pasos:
 
 1. Verificación de que el filesystem BtrFS se encuentre montado.
 2. Comprobación de la existencia de los directorios utilizados por el sistema.
-3. Creación de un snapshot de solo lectura del subvolumen `proyecos`.
+3. Creación de un snapshot de solo lectura del subvolumen `proyectos`.
 4. Aplicación de una política de retención de 7 días.
 5. Eliminación automática de snapshots vencidos.
 6. Replicación del snapshot hacía el subvolumen `backups`.
